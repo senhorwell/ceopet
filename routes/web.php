@@ -21,33 +21,21 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('table-list', function () {
-		return view('pages.table_list');
-	})->name('table');
+	Route::get('paciente/consulta', function () {
+		return view('paciente.consulta');
+	})->name('paciente.consulta');
 
-	Route::get('typography', function () {
-		return view('pages.typography');
-	})->name('typography');
+	Route::get('atendimento/consulta', function () {
+		return view('atendimento.consulta');
+	})->name('atendimento.consulta');
 
-	Route::get('icons', function () {
-		return view('pages.icons');
-	})->name('icons');
+	Route::get('atendimento/registra', function () {
+		return view('atendimento.registra');
+	})->name('atendimento.registra');
 
-	Route::get('map', function () {
-		return view('pages.map');
-	})->name('map');
-
-	Route::get('notifications', function () {
-		return view('pages.notifications');
-	})->name('notifications');
-
-	Route::get('rtl-support', function () {
-		return view('pages.language');
-	})->name('language');
-
-	Route::get('upgrade', function () {
-		return view('pages.upgrade');
-	})->name('upgrade');
+	Route::get('user/dados', function () {
+		return view('profile.dados');
+	})->name('profile.dados');
 });
 
 Route::group(['middleware' => 'auth'], function () {
