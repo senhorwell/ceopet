@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'admin',
     ];
 
     /**
@@ -40,4 +41,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function firstName(){
+        $primeiroNome = explode(" ", $this->name);
+        return $primeiroNome[0];
+    }
+    public function lastName(){
+        $ultimoNome = explode(" ", $this->name);
+        return $ultimoNome[count($ultimoNome) - 1];
+    }
 }

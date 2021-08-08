@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Credenciado;
+use App\Models\Pet;
+use App\Models\Plano;
+use Auth;
+
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -17,30 +23,46 @@ class ProfileController extends Controller
     {
         return view('profile.edit');
     }
-
-    /**
-     * Update the profile
-     *
-     * @param  \App\Http\Requests\ProfileRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function update(ProfileRequest $request)
+    public function update(Request $request)
     {
-        auth()->user()->update($request->all());
-
-        return back()->withStatus(__('Profile successfully updated.'));
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+  
+        $imageName = Auth::user()->id . '.png';  
+   
+        $request->image->move(public_path('img/profile'), $imageName);
+   
+        return redirect('/');
     }
-
-    /**
-     * Change the password
-     *
-     * @param  \App\Http\Requests\PasswordRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function password(PasswordRequest $request)
+    public function dados()
     {
-        auth()->user()->update(['password' => Hash::make($request->get('password'))]);
+        $user = Auth::user();
+        return view('profile.dados', ['user' => $user]);
+    }
+    public function registrarPaciente()
+    {
+        $post = Request::post();
 
-        return back()->withStatusPassword(__('Password successfully updated.'));
+        $dono = Credenciado::create([
+            'name'=> $post["name"],
+            'fantasia' => $post["fantasia"],
+            'cnpj'=> $post["cnpj"],
+            'telefone'=> $post["phone"],
+            'email'=> $post["email"],
+            'endereco'=> $post["endereco"],
+            'cep'=> $post["cep"],
+            'numero'=> $post["numero"],
+            'complemento'=> $post["complemento"],
+            'bairro'=> $post["bairro"],
+            'cidade'=> $post["cidade"],
+            'estado'=> $post["estado"],
+        ]);
+        $pet = Pet::create([
+            'name'=> $post["paciente"],
+            'credenciado_id' => $dono->id,
+            'raca'=> $post["raca"],
+            'plano'=> $post["plano"],
+        ]);
     }
 }

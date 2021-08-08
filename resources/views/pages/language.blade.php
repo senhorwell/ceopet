@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="{{ asset('material') }}/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-      {{ __('Material Dashboard by Wellwlds') }}
+      {{ __('Material Dashboard by Ceopet') }}
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -51,7 +51,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="https://creative-tim.com/" class="simple-text logo-normal">
+        <a href="/" class="simple-text logo-normal">
           تیم خلاق
         </a>
       </div>

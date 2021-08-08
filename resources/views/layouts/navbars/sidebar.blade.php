@@ -5,26 +5,44 @@
       Tip 2: you can also add an image using data-image tag
   -->
   <div class="logo">
-    <a href="https://creative-tim.com/" class="simple-text logo-normal">
+    <a href="/" class="simple-text logo-normal">
       <img src="{{ asset('img') }}/logo.svg" width="120px" height="40px"/>
     </a>
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-    <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }} person-box d-flex align-items-center justify-content-center">
+      @guest()
+        <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }} person-box d-flex align-items-center justify-content-center">
+          <div class="col-9 person-bg">
+            <a class="nav-link p-0 m-0" href="{{ route('profile.dados') }}">
+              <div class="col-3 p-0">
+                <i class="material-icons person">person</i>
+              </div>
+              <div class="col-6 p-0 d-flex flex-column text-left">
+                <a class="m-0 p-0" href="{{ route('profile.dados')}}">Fazer Login</a>
+              </div>
+            </a>
+          </div>
+        </li>
+      @endguest
+      @auth()
+      <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }} person-box d-flex align-items-center justify-content-center">
         <div class="col-9 person-bg">
-          <a class="nav-link p-0 m-0" href="{{ route('profile.dados') }}">
+          <a class="nav-link p-0 m-0" href="{{ route('profile.edit') }}">
             <div class="col-3 p-0">
+              @if(file_exists('img/profile/'.auth()->user()->id . '.png')) 
+                <img id="profile-pic" src="/img/profile/{{auth()->user()->id}}.png">
+              @else
               <i class="material-icons person">person</i>
+              @endif
             </div>
             <div class="col-6 p-0 d-flex flex-column text-left">
-              <p>Luiz Felipe</p>
-              <p>Designer</p>
-              <a class="m-0 p-0" href="{{ route('profile.dados')}}">Meus dados</a>
+              <p>{{ auth()->user()->firstName() }}</p>
+              <p>{{ auth()->user()->lastName() }}</p>
+              <a class="m-0 p-0" href="{{ route('profile.edit')}}">Meus dados</a>
             </div>
           </a>
         </div>
-
       </li>
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
@@ -50,6 +68,50 @@
           <p>{{ __('Consultar Atendimento') }}</p>
         </a>
       </li>
+      @if (auth()->user()->admin == 1)
+        <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
+            <i class="material-icons">note_add</i>
+            <p>{{ __('Cadastrar') }}
+              <b class="caret"></b>
+            </p>
+          </a>
+          <div class="collapse" id="laravelExample">
+            <ul class="nav">
+              <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('profile.dados') }}">
+                  <i class="material-icons">note_add</i>
+                  <span class="sidebar-normal">{{ __('Credenciado') }} </span>
+                </a>
+              </li>
+              <li class="nav-item{{ $activePage == 'pet' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('paciente.registra.get') }}">
+                  <i class="material-icons">note_add</i>
+                  <span class="sidebar-normal">{{ __('Pet') }} </span>
+                </a>
+              </li>
+              <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('procedimento.registra') }}">
+                  <i class="material-icons">note_add</i>
+                  <span class="sidebar-normal"> {{ __('Procedimento') }} </span>
+                </a>
+              </li>
+              <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('plano.registra') }}">
+                  <i class="material-icons">note_add</i>
+                  <span class="sidebar-normal"> {{ __('Plano') }} </span>
+                </a>
+              </li>
+              <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('banner.registra') }}">
+                  <i class="material-icons">note_add</i>
+                  <span class="sidebar-normal"> {{ __('Banner') }} </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      @endif
       <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('profile.edit') }}">
           <i class="material-icons">autorenew</i>
@@ -65,6 +127,7 @@
             {{ csrf_field() }}
         </form>
       </li>
+      @endauth()
     </ul>
   </div>
 </div>

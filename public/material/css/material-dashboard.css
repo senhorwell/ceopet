@@ -14,7 +14,15 @@
  */
 
 /*     brand Colors              */
-
+.title-card {
+  color: #427798;
+  font-size: 2rem;
+  font-weight: bold;
+} 
+table.prontuario td,
+table.prontuario th{
+  text-align: center;
+}
 .card {
   font-size: .875rem;
 }
@@ -780,6 +788,23 @@ h6,
   color: inherit;
 }
 
+#status-box {
+  width: 100%;
+  height: 3rem;
+  border-radius: 5px;
+}
+#status-box.green{
+  background: green;
+}
+#status-box.red{
+  background: red;
+}
+
+#status-box p {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
 h1,
 .h1 {
   font-size: 2.5rem;
@@ -8795,16 +8820,16 @@ a.text-dark:focus {
 
 .btn.btn-primary:hover {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
+  background-color: #427798 /*old #9124a3*/;
+  border-color: #427798 /*old #701c7e*/;
 }
 
 .btn.btn-primary:focus,
 .btn.btn-primary.focus,
 .btn.btn-primary:hover {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
+  background-color: #427798 /*old #9124a3*/;
+  border-color: #427798 /*old #701c7e*/;
 }
 
 .btn.btn-primary:active,
@@ -8812,8 +8837,8 @@ a.text-dark:focus {
 .open>.btn.btn-primary.dropdown-toggle,
 .show>.btn.btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
+  background-color: #427798 /*old #9124a3*/;
+  border-color: #427798 /*old #701c7e*/;
   box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12);
 }
 
@@ -8830,7 +8855,7 @@ a.text-dark:focus {
 .show>.btn.btn-primary.dropdown-toggle:focus,
 .show>.btn.btn-primary.dropdown-toggle.focus {
   color: #fff;
-  background-color: #9124a3;
+  background-color: #427798 /*old #9124a3*/;
   border-color: #3f1048;
 }
 
@@ -8840,7 +8865,7 @@ a.text-dark:focus {
 }
 
 .open>.btn.btn-primary.dropdown-toggle.bmd-btn-icon:hover {
-  background-color: #9124a3;
+  background-color: #427798 /*old #9124a3*/;
 }
 
 .btn.btn-primary.disabled:focus,
@@ -14556,6 +14581,30 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   width: 26px;
 }
 
+#profile-pic {
+  height: 50px;
+  width: 50px;
+  overflow-block: hidden;
+  border-radius: 80px;
+}
+
+#banner-list img {
+  width: 30px;
+  height: auto;
+}
+#banner-list .header-pic {
+  width: 70px;
+}
+
+#bannerCarousel .carousel-item {
+  height: 389px;
+  width: 100%;
+}
+
+#banner-list .box-pic {
+  display: flex;
+  justify-content: center;
+}
 .sidebar .logo-tim {
   border-radius: 50%;
   border: 1px solid #333;
@@ -15215,16 +15264,16 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 
 .fixed-plugin .btn.btn-primary:hover {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
+  background-color: #427798 /*old #9124a3*/;
+  border-color: #427798 /*old #701c7e*/;
 }
 
 .fixed-plugin .btn.btn-primary:focus,
 .fixed-plugin .btn.btn-primary.focus,
 .fixed-plugin .btn.btn-primary:hover {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
+  background-color: #427798 /*old #9124a3*/;
+  border-color: #427798 /*old #701c7e*/;
 }
 
 .fixed-plugin .btn.btn-primary:active,
@@ -15232,8 +15281,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .open>.fixed-plugin .btn.btn-primary.dropdown-toggle,
 .show>.fixed-plugin .btn.btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
+  background-color: #427798 /*old #9124a3*/;
+  border-color: #427798 /*old #701c7e*/;
   box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12);
 }
 
@@ -15250,7 +15299,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .show>.fixed-plugin .btn.btn-primary.dropdown-toggle:focus,
 .show>.fixed-plugin .btn.btn-primary.dropdown-toggle.focus {
   color: #fff;
-  background-color: #9124a3;
+  background-color: #427798 /*old #9124a3*/;
   border-color: #3f1048;
 }
 
@@ -15260,7 +15309,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .open>.fixed-plugin .btn.btn-primary.dropdown-toggle.bmd-btn-icon:hover {
-  background-color: #9124a3;
+  background-color: #427798 /*old #9124a3*/;
 }
 
 .fixed-plugin .btn.btn-primary.disabled:focus,

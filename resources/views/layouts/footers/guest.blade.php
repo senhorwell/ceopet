@@ -5,7 +5,7 @@
         <script>
             document.write(new Date().getFullYear())
         </script>, made by
-        <a href="https://instagram.com/wellwlds" target="_blank">Wellwlds</a>
+        <a href="https://instagram.com/Ceopet" target="_blank">Ceopet</a>
         </div>
     </div>
 </footer>

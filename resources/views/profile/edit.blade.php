@@ -5,10 +5,8 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form method="post" action="{{ route('profile.update') }}" autocomplete="off" class="form-horizontal">
+          <form method="post" action="{{ route('profile.update') }}" class="form-horizontal" enctype="multipart/form-data">
             @csrf
-            @method('put')
-
             <div class="card ">
               <div class="card-body ">
                 @if (session('status'))
@@ -45,9 +43,22 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="input-group">
+                    <label class="col-sm-2 col-form-label">{{ __('Foto') }}</label>
+                    <div class="col-sm-7">
+                      <input type="file" name="image" class="form-control">
+                    </div>
+                  </div>
+                  @if ($errors->has('foto'))
+                    <div id="foto-error" class="error text-danger pl-3" for="foto" style="display: block;">
+                      <strong>{{ $errors->first('foto') }}</strong>
+                    </div>
+                  @endif
+                </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                <button type="submit" class="btn btn-primary">{{ __('Salvar') }}</button>
               </div>
             </div>
           </form>

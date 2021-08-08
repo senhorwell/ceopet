@@ -27,4 +27,12 @@ Configurar no arquivo .env o banco de dados conforme abaixo
 >DB_USERNAME=root
 >DB_PASSWORD=
 
-Feito por Wellwlds
+
+#DB_CONNECTION=mysql
+#DB_HOST=186.202.152.86
+#DB_PORT=3306
+#DB_DATABASE=ceopet
+#DB_USERNAME=root
+#DB_PASSWORD=A2345678
+
+Feito por Ceopet

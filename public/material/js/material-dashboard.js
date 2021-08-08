@@ -5,7 +5,7 @@
  =========================================================
 
  * Product Page: https://www.creative-tim.com/product/material-dashboard
- * Copyright 2018 Wellwlds (http://www.creative-tim.com)
+ * Copyright 2018 Ceopet (http://www.creative-tim.com)
 
  * Designed by www.invisionapp.com Coded by www.creative-tim.com
 
@@ -657,7 +657,7 @@ md = {
           className: 'event-azure'
         },
         {
-          title: 'Click for Wellwlds',
+          title: 'Click for Ceopet',
           start: new Date(y, m, 21),
           end: new Date(y, m, 22),
           url: 'http://www.creative-tim.com/',

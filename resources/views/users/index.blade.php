@@ -16,7 +16,7 @@
 
 
     <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="Material Dashboard Laravel by Wellwlds">
+    <meta itemprop="name" content="Material Dashboard Laravel by Ceopet">
     <meta itemprop="description" content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design.">
 
     <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/154/opt_md_laravel_thumbnail.jpg">
@@ -25,7 +25,7 @@
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="product">
     <meta name="twitter:site" content="@creativetim">
-    <meta name="twitter:title" content="Material Dashboard Laravel by Wellwlds">
+    <meta name="twitter:title" content="Material Dashboard Laravel by Ceopet">
 
     <meta name="twitter:description" content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design.">
     <meta name="twitter:creator" content="@creativetim">
@@ -34,12 +34,12 @@
 
     <!-- Open Graph data -->
     <meta property="fb:app_id" content="655968634437471">
-    <meta property="og:title" content="Material Dashboard Laravel by Wellwlds" />
+    <meta property="og:title" content="Material Dashboard Laravel by Ceopet" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://material-dashboard-laravel.creative-tim.com/" />
     <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/154/opt_md_laravel_thumbnail.jpg"/>
     <meta property="og:description" content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design." />
-    <meta property="og:site_name" content="Wellwlds" />
+    <meta property="og:site_name" content="Ceopet" />
     
     <title>{{ __('CeoPet') }}</title>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material') }}/img/apple-icon.png">
@@ -76,8 +76,8 @@
                   Tip 2: you can also add an image using data-image tag
               -->
               <div class="logo">
-                <a href="https://creative-tim.com/" class="simple-text logo-normal">
-                  {{ __('Wellwlds') }}
+                <a href="/" class="simple-text logo-normal">
+                  {{ __('Ceopet') }}
                 </a>
               </div>
               <div class="sidebar-wrapper">
