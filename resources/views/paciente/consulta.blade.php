@@ -208,17 +208,23 @@
           }
           var caca = {!! json_encode($pets->toArray(), JSON_HEX_TAG) !!};
 
-          console.log(caca[opt.value-1]);
-          document.getElementById("input-name").setAttribute('value',caca[opt.value-1]["name"]);
-          document.getElementById("input-raca").setAttribute('value',caca[opt.value-1]["raca"]);
-          document.getElementById("input-plano").setAttribute('value',caca[opt.value-1]["plano"]);
-          document.getElementById("status").setAttribute('value',caca[opt.value-1]["status"]);
-          document.getElementById("input-aniversario").setAttribute('value',caca[opt.value-1]["aniversario"]);
-          document.getElementById("input-especie").setAttribute('value',caca[opt.value-1]["especie"]);
-          document.getElementById("input-microchip").setAttribute('value',caca[opt.value-1]["microchip"]);
-          document.getElementById("dono_id").setAttribute('value',caca[opt.value-1]["dono"]["id"]);
-          document.getElementById("input-dono").value = caca[opt.value-1]["dono"]["id"];
-          document.getElementById("input-plano").value = caca[opt.value-1]["plano"]["id"];
+          var option = 0;
+          for (var i = 0; i < caca.length; i++) {
+            if(caca[i]["id"] == opt.value){
+              option = i;
+              break;
+            }
+          }
+          document.getElementById("input-name").setAttribute('value',caca[option]["name"]);
+          document.getElementById("input-raca").setAttribute('value',caca[option]["raca"]);
+          document.getElementById("input-plano").setAttribute('value',caca[option]["plano"]);
+          document.getElementById("status").setAttribute('value',caca[option]["status"]);
+          document.getElementById("input-aniversario").setAttribute('value',caca[option]["aniversario"]);
+          document.getElementById("input-especie").setAttribute('value',caca[option]["especie"]);
+          document.getElementById("input-microchip").setAttribute('value',caca[option]["microchip"]);
+          document.getElementById("dono_id").setAttribute('value',caca[option]["dono"]["id"]);
+          document.getElementById("input-dono").value = caca[option]["dono"]["id"];
+          document.getElementById("input-plano").value = caca[option]["plano"]["id"];
 
           $.ajax({
               url: "{{ route('paciente.consulta.prontuario') }}",
@@ -226,7 +232,7 @@
               headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },  
-              data: {paciente:caca[opt.value-1]["id"],plano:caca[opt.value-1]["plano"]["id"]},
+              data: {paciente:caca[option]["id"],plano:caca[option]["plano"]["id"]},
               success: function(data) {
                 console.log(data);
                 var resultado = data;
@@ -257,7 +263,7 @@
              }
           });
 
-          if(caca[opt.value-1]["status"] == 1){
+          if(caca[option]["status"] == 1){
             if(document.getElementById("status-box").classList.contains('d-none')){
               document.getElementById("status-box").classList.remove('d-none');
               document.getElementById("status-box").classList.add('d-flex');

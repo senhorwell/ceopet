@@ -1,11 +1,11 @@
-@extends('layouts.app', ['activePage' => 'credenciado.dados', 'titlePage' => __('Credenciado Registrar')])
+@extends('layouts.app', ['activePage' => 'tutor', 'titlePage' => __('Tutor')])
 
 @section('content')
   <div class="content">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form method="post" action="{{ route('credenciado.registrar') }}" autocomplete="off" class="form-horizontal">
+          <form method="post" action="{{ route('tutor.registrar') }}" autocomplete="off" class="form-horizontal">
             @csrf
             <div class="card ">
               <div class="card-body ">
@@ -22,40 +22,19 @@
                   </div>
                 @endif
                 <div class="d-inline-flex align-items-center">
-                  <h1 class="title-card pr-4">Cadastrar credenciado</h1>
-                  <p class="p-0 m-0">Aqui você pode cadastrar o credenciado</p>
+                  <h1 class="title-card pr-4">Cadastrar tutor</h1>
+                  <p class="p-0 m-0">Aqui você pode cadastrar o tutor</p>
                 </div>
                 <div class="mt-5 align-items-center">
-                  <h1 class="title-card pr-4">Dados do credenciado</h1>
+                  <h1 class="title-card pr-4">Dados do tutor</h1>
                 </div>
                 <div class="row col-12 p-0">
                   <div class="d-flex flex-column col-6">
-                    <label class="form-label">{{ __('Nome do credenciado') }}</label>
+                    <label class="form-label">{{ __('Nome do tutor') }}</label>
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                       <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="input-name" type="text" placeholder="{{ __('Xxxxxxxxxxxxxxx') }}" value="" required="true" aria-required="true"/>
                       @if ($errors->has('name'))
                         <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                  <div class="d-flex flex-column col-6">
-                    <label class="form-label">{{ __('Nome fantasia') }}</label>
-                    <div class="form-group{{ $errors->has('fantasia') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('fantasia') ? ' is-invalid' : '' }}" name="fantasia" id="input-fantasia" type="text" placeholder="{{ __('Xxxxxxxxxxx') }}" value="" required="true" aria-required="true"/>
-                      @if ($errors->has('raca'))
-                        <span id="raca-error" class="error text-danger" for="input-fantasia">{{ $errors->first('fantasia') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row col-12 p-0">
-                  <div class="d-flex flex-column col-6">
-                    <label class="form-label">{{ __('CNPJ') }}</label>
-                    <div class="form-group{{ $errors->has('cnpj') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('cnpj') ? ' is-invalid' : '' }}" name="cnpj" id="input-cnpj" type="text" placeholder="{{ __('XXXXXXXXXXXXXXXXXXXXX') }}" value="" required="true" aria-required="true"/>
-                      @if ($errors->has('cnpj'))
-                        <span id="cnpj-error" class="error text-danger" for="input-cnpj">{{ $errors->first('cnpj') }}</span>
                       @endif
                     </div>
                   </div>

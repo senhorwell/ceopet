@@ -66,18 +66,20 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         
-        $image = Request::file('image');
+        /*$image = Request::file('image');
         $name = time().'.png';
         $destinationPath = public_path('/img');
         $image->move($destinationPath, $name);
         $this->save();
 
         return back()->with('success','Image Upload successfully');
+        */
         
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'admin' => $data['level'],
         ]);
         return $user;
     }

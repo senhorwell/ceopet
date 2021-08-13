@@ -56,19 +56,21 @@
             <p>{{ __('Consultar Paciente') }}</p>
         </a>
       </li>
+      @if (auth()->user()->admin == 3 || auth()->user()->admin == 2)
       <li class="nav-item{{ $activePage == 'atendimentoregistra' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('atendimento.registra') }}">
           <i class="material-icons">folder</i>
             <p>{{ __('Registrar Atendimento') }}</p>
         </a>
       </li>
+      @endif
       <li class="nav-item{{ $activePage == 'atendimentoconsulta' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('atendimento.consulta') }}">
           <i class="material-icons">settings</i>
           <p>{{ __('Consultar Atendimento') }}</p>
         </a>
       </li>
-      @if (auth()->user()->admin == 1)
+      @if (auth()->user()->admin == 3)
         <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
           <a class="nav-link collapsed" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
             <i class="material-icons">note_add</i>
@@ -78,10 +80,16 @@
           </a>
           <div class="collapse" id="laravelExample">
             <ul class="nav">
-              <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('profile.dados') }}">
+              <li class="nav-item{{ $activePage == 'credenciado.dados' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('credenciado.dados') }}">
                   <i class="material-icons">note_add</i>
                   <span class="sidebar-normal">{{ __('Credenciado') }} </span>
+                </a>
+              </li>
+              <li class="nav-item{{ $activePage == 'tutor' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('tutor.dados') }}">
+                  <i class="material-icons">note_add</i>
+                <span class="sidebar-normal">{{ __('Tutor') }} </span>
                 </a>
               </li>
               <li class="nav-item{{ $activePage == 'pet' ? ' active' : '' }}">

@@ -10,7 +10,7 @@ use App\Models\Pet;
 use App\Models\Plano;
 use Auth;
 
-use Illuminate\Http\Request;
+use Request;
 
 class ProfileController extends Controller
 {
@@ -22,6 +22,29 @@ class ProfileController extends Controller
     public function edit()
     {
         return view('profile.edit');
+    }
+    public function tutor()
+    {
+        return view('profile.tutor');
+    }
+    public function registrarTutor()
+    {
+        $post = Request::post();
+
+        $dono = Credenciado::create([
+            'name'=> $post["name"],
+            'fantasia' => "Tutor",
+            'cnpj'=> "0",
+            'telefone'=> $post["phone"],
+            'email'=> $post["email"],
+            'endereco'=> $post["endereco"],
+            'cep'=> $post["cep"],
+            'numero'=> $post["numero"],
+            'complemento'=> $post["complemento"],
+            'bairro'=> $post["bairro"],
+            'cidade'=> $post["cidade"],
+            'estado'=> $post["estado"],
+        ]);
     }
     public function update(Request $request)
     {
@@ -64,5 +87,25 @@ class ProfileController extends Controller
             'raca'=> $post["raca"],
             'plano'=> $post["plano"],
         ]);
+    }
+    public function registrarCredenciado()
+    {
+        $post = Request::post();
+
+        $dono = Credenciado::create([
+            'name'=> $post["name"],
+            'fantasia' => $post["fantasia"],
+            'cnpj'=> $post["cnpj"],
+            'telefone'=> $post["phone"],
+            'email'=> $post["email"],
+            'endereco'=> $post["endereco"],
+            'cep'=> $post["cep"],
+            'numero'=> $post["numero"],
+            'complemento'=> $post["complemento"],
+            'bairro'=> $post["bairro"],
+            'cidade'=> $post["cidade"],
+            'estado'=> $post["estado"],
+        ]);
+        return redirect('/');
     }
 }

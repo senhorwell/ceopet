@@ -25,9 +25,14 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('paciente/consulta', 'App\Http\Controllers\PacienteController@consultar')->name('paciente.consulta');
 	Route::post('paciente/consulta/prontuario', 'App\Http\Controllers\PacienteController@consultarProntuario')->name('paciente.consulta.prontuario');
+	
 	Route::get('paciente/registra', 'App\Http\Controllers\PacienteController@registra')->name('paciente.registra.get');
 	Route::post('paciente/registrar', 'App\Http\Controllers\PacienteController@registrar')->name('paciente.registra');
 	Route::put('paciente/registrar', 'App\Http\Controllers\PacienteController@registrar')->name('paciente.registra');
+
+	Route::get('user/dados', 'App\Http\Controllers\ProfileController@dados')->name('profile.dados');
+	Route::get('credenciado', 'App\Http\Controllers\ProfileController@dados')->name('credenciado.dados');
+	Route::post('credenciado/registra', 'App\Http\Controllers\ProfileController@registrarCredenciado')->name('credenciado.registrar');
 
 	Route::get('atendimento/registra', 'App\Http\Controllers\AtendimentoController@registrar')->name('atendimento.registra');
 	Route::post('atendimento/registra', 'App\Http\Controllers\AtendimentoController@registrarProntuario')->name('atendimento.registra.prontuario');
@@ -52,8 +57,13 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('banner/registra', 'App\Http\Controllers\BannerController@bannerRegistraSalvar')->name('banner.registra.salvar');
 	Route::delete('banner/registra/deletar', 'App\Http\Controllers\BannerController@deletar')->name('banner.registra.delete');
 
-	Route::get('user/dados', 'App\Http\Controllers\ProfileController@dados')->name('profile.dados');
-	Route::post('user/dados', 'App\Http\Controllers\ProfileController@registrarPaciente')->name('profile.registrar.paciente');
+	
+
+
+
+	Route::get('tutor', 'App\Http\Controllers\ProfileController@tutor')->name('tutor.dados');
+	Route::post('tutor/registra', 'App\Http\Controllers\ProfileController@registrarTutor')->name('tutor.registrar');
+
 });
 Route::post('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 
